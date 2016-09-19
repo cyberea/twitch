@@ -17,15 +17,33 @@ var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 
 // var url = "https://api.twitch.tv/kraken/freecodecamp?callback=?"
 
+//streams provides url to the user's channel. If online it provides details about what is streaming
+// if offline stream = null
 
-function stuff (){
-	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+function stream (){
+	$.getJSON("https://api.twitch.tv/kraken/streams/storbeck?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
 	var userData = "data";
 	console.log(data);
+}).fail(function  error(){
+	console.log("user does not exist")
+	$("body").css("backgroundColor", "red");
 });
 }
 
-stuff();
+//user provides info about user, including bio and logo
+//channel provided info about the channel
+function channels (){
+	$.getJSON("https://api.twitch.tv/kraken/channels/sdfsgdsdgsd/?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+	var userData = "data";
+	console.log(data);
+}).fail(function  error(){
+	console.log("user does not exist")
+	$("body").css("backgroundColor", "red");
+});
+}
+
+
+stream();
 
 
 
