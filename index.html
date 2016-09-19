@@ -3,14 +3,78 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Twitch</title>
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
+	<style>
+
+	/*link to nice colour palette http://www.colourlovers.com/palette/4329504/Morning_Sail*/
+		body{
+			background-color: #723C54;
+		}
+
+		.wrapper{
+			width: 500px;
+			margin: 30px  auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 5px;
+		}
+
+		h1{
+			font-family: 'Russo One', sans-serif;
+			/*letter-spacing: -1px;*/
+			text-shadow: 3px 3px 0 #ccc;
+			margin-bottom: 20px;
+			color: #723C54;
+		}
+
+		.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+			color: #555;
+		    background-color: #fff;
+		    border: 2px solid #723C54;
+		    border-bottom-color: transparent;
+		}
+
+		.nav-tabs {
+    		border-bottom: 2px solid #723C54;
+    	}	
+
+    	.nav-tabs>li {
+		    margin-bottom: -2px;
+		}
+		
+		 .nav li a {
+		 	font-family: 'Russo One', sans-serif;
+		 	letter-spacing: 1px;
+		 } 
+
+		 .nav-tabs>li.active a {
+		 	color: #723C54;
+		 }  
+
+		a {
+    		color: #999;
+    }	
+
+	</style>
 </head>
 <body>
-	<h1>Hello Puffs</h1>
-	<p>learning new stuffs</p>
-	<p>So much stuffs to learn</p>
+
+<div class="wrapper">
+	<h1 class="">Twitch TV Streamers</h1>
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#all">All Users</a></li>
+		<li> <a data-toggle="tab" href="#online">Online</a></li>
+		<li> <a data-toggle="tab" href="#offline">Offline</a></li>
+	</ul>
+</div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 	
 var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
@@ -21,24 +85,24 @@ var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 // if offline stream = null
 
 function stream (){
-	$.getJSON("https://api.twitch.tv/kraken/streams/storbeck?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
 	var userData = "data";
 	console.log(data);
 }).fail(function  error(){
 	console.log("user does not exist")
-	$("body").css("backgroundColor", "red");
+	// $("body").css("backgroundColor", "red");
 });
 }
 
 //user provides info about user, including bio and logo
 //channel provided info about the channel
 function channels (){
-	$.getJSON("https://api.twitch.tv/kraken/channels/sdfsgdsdgsd/?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+	$.getJSON("https://api.twitch.tv/kraken/channels/freecodecamp/?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
 	var userData = "data";
 	console.log(data);
 }).fail(function  error(){
 	console.log("user does not exist")
-	$("body").css("backgroundColor", "red");
+	// $("body").css("backgroundColor", "red");
 });
 }
 
