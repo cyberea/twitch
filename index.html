@@ -8,6 +8,49 @@
 	<h1>Hello Puffs</h1>
 	<p>learning new stuffs</p>
 	<p>So much stuffs to learn</p>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	
+var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
+
+// var url = "https://api.twitch.tv/kraken/freecodecamp?callback=?"
+
+
+function stuff (){
+	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+	var userData = "data";
+	console.log(data);
+});
+}
+
+stuff();
+
+
+
+// $.ajax({
+// 	type: "GET",
+// 	url: "https://api.twitch.tv/kraken/streams/freecodecamp",
+// 	headers: {"Client-ID": "m8df8m71995vq176lg6wxmqhu6wzgv8"},
+// 	success: function(data){
+// 		var userData = data;
+// 		console.log(userData);
+// 	}
+// })
+
+// function getUsers (){
+// 	userArr.forEach(function(user){
+
+// 	})
+// }
+//I want to make a url for each user
+
+//twitch Client-ID: m8df8m71995vq176lg6wxmqhu6wzgv8
+
+
+</script>
+
 </body>
 </html>
 
