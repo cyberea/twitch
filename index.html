@@ -152,17 +152,21 @@
 //if stream.stream != null
 	//  userbox add class hide
 
+$("document").ready(function(){
+
 var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
 
 var url = "https://api.twitch.tv/kraken/";
 var id = "?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8";
 
-document.ready(function(){
+
 
 userArr.forEach(function(user){
 	function getStreams(){
-		$.getJSON("url" + user + "id", function(data){
-			
+		$.getJSON("url" + "streams" + user + "id", function(data){
+			console.log(data);
+			var streamsData = data;
+			console.log(streamsData);
 		})
 	}
 });
@@ -174,30 +178,30 @@ userArr.forEach(function(user){
 //streams provides url to the user's channel. If online it provides details about what is streaming
 // if offline stream = null
 
-function getStreams (){
-	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
-	var userData = "data";
-	console.log(data);
-}).fail(function error(){
-	console.log("user does not exist")
-	// $("body").css("backgroundColor", "red");
-});
-}
+// function getStreams (){
+// 	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+// 	var userData = "data";
+// 	console.log(data);
+// }).fail(function error(){
+// 	console.log("user does not exist")
+// 	// $("body").css("backgroundColor", "red");
+// });
+// }
 
-//user provides info about user, including bio and logo
-//channel provided info about the channel
-function getChannels (){
-	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp/?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
-	var userData = "data";
-	console.log(data);
-}).fail(function error(){
-	console.log("user does not exist")
-	// $("body").css("backgroundColor", "red");
-});
-}
+// //user provides info about user, including bio and logo
+// //channel provided info about the channel
+// function getChannels (){
+// 	$.getJSON("https://api.twitch.tv/kraken/streams/freecodecamp/?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8", function(data){
+// 	var userData = "data";
+// 	console.log(data);
+// }).fail(function error(){
+// 	console.log("user does not exist")
+// 	// $("body").css("backgroundColor", "red");
+// });
+// }
 
 
-channels();
+// channels();
 
 
 
@@ -220,7 +224,7 @@ channels();
 
 //twitch Client-ID: m8df8m71995vq176lg6wxmqhu6wzgv8
 
-})
+});
 </script>
 
 </body>
