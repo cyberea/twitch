@@ -82,7 +82,7 @@
     	width: 46px;
     	height: 46px;
     	border-radius: 50%;
-    	margin-right: 5px;
+    	margin-right: 10px;
     }
 
 	   h4{
@@ -110,15 +110,15 @@
 		<li> <a data-toggle="tab" href="#offline">Offline</a></li>
 	</ul>
 
-
-		<div class="userBox">
+<div class="results"></div>
+<!-- 	<div class="userBox">
 		<div class="userTitle">
 			<img class="logo" id="logo" src="https://i1376.photobucket.com/albums/ah12/RosiePosieUK/me_zpsj5bhel4s.jpg">
 			<h4><a id="userTitle" href="#"> Free Code Camp</a></h4>
 		</div>
 		<p><a href="#" id="userStreaming">Currently streaming: </a></p>
 		<p id="userNotExist" class="">User doesn't exist</p>
-	</div>
+	</div> -->
 
 
 </div><!-- end wrapper -->
@@ -158,19 +158,52 @@ var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 
 var url = "https://api.twitch.tv/kraken/";
 var id = "?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8";
-
+var channelsData;
+// var streamsData;
+var html;
 
 
 userArr.forEach(function(user){
-	function getStreams(){
-		$.getJSON("url" + "streams" + user + "id", function(data){
-			console.log(data);
-			var streamsData = data;
-			console.log(streamsData);
-		})
-	}
-});
+	
+		// $.getJSON(url + "streams/" + user + id, function(sData){
+		// 	// console.log(data);
+		// 	streamsData = sData;
+		// 	// console.log(streamsData);
+		// })
 
+		$.getJSON(url + "channels/" + user + id, function(cData){
+			channelsData = cData;
+			allUsers(channelsData);
+		})
+
+		function allUsers(channelsData){
+			if ()
+
+			html += "<div class='userBox'>";
+			html += "<div class='userTitle'>";
+			html += "<img class='logo' id='logo' src='" + channelsData.logo + "'>";
+			html += "<h4><a id='userTitle' href='" + channelsData.url + "'>"  + channelsData.display_name + "</a></h4>";
+			html += "</div>";
+			html += "</div>";
+
+			$(".results").html(html);
+
+		}
+
+
+
+	// 	<div class="userBox">
+	// 	<div class="userTitle">
+	// 		<img class="logo" id="logo" src="https://i1376.photobucket.com/albums/ah12/RosiePosieUK/me_zpsj5bhel4s.jpg">
+	// 		<h4><a id="userTitle" href="#"> Free Code Camp</a></h4>
+	// 	</div>
+	// 	<p><a href="#" id="userStreaming">Currently streaming: </a></p>
+	// 	<p id="userNotExist" class="">User doesn't exist</p>
+	// </div>
+
+
+
+});//end forEach
 
 
 
