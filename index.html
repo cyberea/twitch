@@ -9,7 +9,7 @@
 
 	<style>
 
-	/*link to nice colour palette http://www.colourlovers.com/palette/4329504/Morning_Sail*/
+		/*link to nice colour palette http://www.colourlovers.com/palette/4329504/Morning_Sail*/
 		body{
 			background-color: #723C54;
 			font-family: 'open sans', sans-serif;
@@ -43,74 +43,74 @@
 
 		.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
 			color: #555;
-	    background-color: #fff;
-	    border: 2px solid #723C54;
-	    border-bottom-color: transparent;
+			background-color: #fff;
+			border: 2px solid #723C54;
+			border-bottom-color: transparent;
 		}
 
 		.nav-tabs {
-    		border-bottom: 2px solid #723C54;
-    	}	
+			border-bottom: 2px solid #723C54;
+		}	
 
-    .nav-tabs li {
-		    margin-bottom: -2px;
+		.nav-tabs li {
+			margin-bottom: -2px;
 		}
 		
-		 .nav li a {
-		 	font-family: 'Russo One', sans-serif;
-		 	letter-spacing: 1px;
-		 } 
+		.nav li a {
+			font-family: 'Russo One', sans-serif;
+			letter-spacing: 1px;
+		} 
 
-		 .nav-tabs li.active a {
-		 	color: #723C54;
-		 }  
+		.nav-tabs li.active a {
+			color: #723C54;
+		}  
 
-		 .nav-tabs li a:hover {
-    	color: #723C54;
+		.nav-tabs li a:hover {
+			color: #723C54;
 		}
 
 		.nav-tabs a{
-    	color: #999;
-    }	
+			color: #999;
+		}	
 
-    .userBox{
-    	border-bottom: 2px solid #723C54;
-    }
+		.userBox{
+			border-bottom: 2px solid #723C54;
+		}
 
-    .logo{
-    	display: inline-block;
-    	width: 46px;
-    	height: 46px;
-    	border-radius: 50%;
-    	margin-right: 10px;
-    }
+		.logo{
+			display: inline-block;
+			width: 46px;
+			height: 46px;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
 
-	   h4{
-	   	display: inline-block;
-	   	font-weight: 700;
-	   }
+		h4{
+			display: inline-block;
+			font-weight: 700;
+		}
 
-	   .userTitle{
-	   	margin: 10px 5px 10px 0;
-	   }
+		.userTitle{
+			margin: 10px 5px 10px 0;
+		}
 
-	   .hide{
-	   	display: none;
-	   }
+		.hide{
+			display: none;
+		}
 
 	</style>
 </head>
 <body>
 
-<div class="wrapper">
-	<h1 class="">Twitch TV Streamers</h1>
-	<ul class="nav nav-tabs">
-		<li class="active"><a data-toggle="tab" href="#all">All Users</a></li>
-		<li> <a data-toggle="tab" href="#online">Online</a></li>
-		<li> <a data-toggle="tab" href="#offline">Offline</a></li>
-	</ul>
+	<div class="wrapper">
+		<h1 class="">Twitch TV Streamers</h1>
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#all">All Users</a></li>
+			<li> <a data-toggle="tab" href="#online">Online</a></li>
+			<li> <a data-toggle="tab" href="#offline">Offline</a></li>
+		</ul>
 
-<div class="results"></div>
+		<div class="results"></div>
 <!-- 	<div class="userBox">
 		<div class="userTitle">
 			<img class="logo" id="logo" src="https://i1376.photobucket.com/albums/ah12/RosiePosieUK/me_zpsj5bhel4s.jpg">
@@ -152,13 +152,13 @@
 //if stream.stream != null
 	//  userbox add class hide
 
-$("document").ready(function(){
+	$("document").ready(function(){
 
-var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
+		var userArr = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
 
-var url = "https://api.twitch.tv/kraken/";
-var id = "?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8";
-var channelsData;
+		var url = "https://api.twitch.tv/kraken/";
+		var id = "?client_id=m8df8m71995vq176lg6wxmqhu6wzgv8";
+		var channelsData;
 // var streamsData;
 var html;
 
@@ -172,13 +172,11 @@ userArr.forEach(function(user){
 		// })
 
 		$.getJSON(url + "channels/" + user + id, function(cData){
+			console.log(`initiating GET..`)
 			channelsData = cData;
-			allUsers(channelsData);
 		})
-
-		function allUsers(channelsData){
-			if ()
-
+		.done(function(){
+			console.log(`GET SUCCESS.`);
 			html += "<div class='userBox'>";
 			html += "<div class='userTitle'>";
 			html += "<img class='logo' id='logo' src='" + channelsData.logo + "'>";
@@ -187,8 +185,27 @@ userArr.forEach(function(user){
 			html += "</div>";
 
 			$(".results").html(html);
+		})
+		.fail(function(){
+			console.log(`GET FAILED. ie. 404.... DO STUFF`);
+		})
+		.always(function(){
+			console.log(`ALWAYS DO STUFF HERE (OPTIONAL).`);
+		})
 
-		}
+		// function allUsers(channelsData){
+		// 	if ()
+
+		// 	html += "<div class='userBox'>";
+		// 	html += "<div class='userTitle'>";
+		// 	html += "<img class='logo' id='logo' src='" + channelsData.logo + "'>";
+		// 	html += "<h4><a id='userTitle' href='" + channelsData.url + "'>"  + channelsData.display_name + "</a></h4>";
+		// 	html += "</div>";
+		// 	html += "</div>";
+
+		// 	$(".results").html(html);
+
+		// }
 
 
 
